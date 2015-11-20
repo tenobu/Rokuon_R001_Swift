@@ -14,6 +14,9 @@
 		98656F3B1BFF7E22002D4EB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98656F391BFF7E22002D4EB7 /* LaunchScreen.storyboard */; };
 		98656F461BFF7E23002D4EB7 /* Rokuon_R001_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98656F451BFF7E23002D4EB7 /* Rokuon_R001_SwiftTests.swift */; };
 		98656F511BFF7E23002D4EB7 /* Rokuon_R001_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98656F501BFF7E23002D4EB7 /* Rokuon_R001_SwiftUITests.swift */; };
+		98656F621BFF8475002D4EB7 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F5F1BFF8475002D4EB7 /* Pause.png */; };
+		98656F631BFF8475002D4EB7 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F601BFF8475002D4EB7 /* Play.png */; };
+		98656F641BFF8475002D4EB7 /* Rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F611BFF8475002D4EB7 /* Rec.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		98656F4C1BFF7E23002D4EB7 /* Rokuon_R001_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rokuon_R001_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98656F501BFF7E23002D4EB7 /* Rokuon_R001_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rokuon_R001_SwiftUITests.swift; sourceTree = "<group>"; };
 		98656F521BFF7E23002D4EB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98656F5F1BFF8475002D4EB7 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		98656F601BFF8475002D4EB7 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		98656F611BFF8475002D4EB7 /* Rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rec.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 				98656F371BFF7E22002D4EB7 /* Assets.xcassets */,
 				98656F391BFF7E22002D4EB7 /* LaunchScreen.storyboard */,
 				98656F3C1BFF7E23002D4EB7 /* Info.plist */,
+				98656F5E1BFF8475002D4EB7 /* Images */,
 			);
 			path = Rokuon_R001_Swift;
 			sourceTree = "<group>";
@@ -123,6 +130,16 @@
 				98656F521BFF7E23002D4EB7 /* Info.plist */,
 			);
 			path = Rokuon_R001_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		98656F5E1BFF8475002D4EB7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				98656F5F1BFF8475002D4EB7 /* Pause.png */,
+				98656F601BFF8475002D4EB7 /* Play.png */,
+				98656F611BFF8475002D4EB7 /* Rec.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +249,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98656F641BFF8475002D4EB7 /* Rec.png in Resources */,
 				98656F3B1BFF7E22002D4EB7 /* LaunchScreen.storyboard in Resources */,
 				98656F381BFF7E22002D4EB7 /* Assets.xcassets in Resources */,
+				98656F631BFF8475002D4EB7 /* Play.png in Resources */,
+				98656F621BFF8475002D4EB7 /* Pause.png in Resources */,
 				98656F361BFF7E22002D4EB7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
