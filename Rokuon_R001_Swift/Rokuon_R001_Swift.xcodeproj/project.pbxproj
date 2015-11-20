@@ -17,6 +17,7 @@
 		98656F621BFF8475002D4EB7 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F5F1BFF8475002D4EB7 /* Pause.png */; };
 		98656F631BFF8475002D4EB7 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F601BFF8475002D4EB7 /* Play.png */; };
 		98656F641BFF8475002D4EB7 /* Rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 98656F611BFF8475002D4EB7 /* Rec.png */; };
+		98656F681BFF8B75002D4EB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98656F671BFF8B75002D4EB7 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		98656F5F1BFF8475002D4EB7 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
 		98656F601BFF8475002D4EB7 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
 		98656F611BFF8475002D4EB7 /* Rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rec.png; sourceTree = "<group>"; };
+		98656F671BFF8B75002D4EB7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98656F681BFF8B75002D4EB7 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 		98656F241BFF7E22002D4EB7 = {
 			isa = PBXGroup;
 			children = (
+				98656F671BFF8B75002D4EB7 /* AVFoundation.framework */,
 				98656F2F1BFF7E22002D4EB7 /* Rokuon_R001_Swift */,
 				98656F441BFF7E23002D4EB7 /* Rokuon_R001_SwiftTests */,
 				98656F4F1BFF7E23002D4EB7 /* Rokuon_R001_SwiftUITests */,
