@@ -47,6 +47,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		tableView.delegate = self;
 		
 		//playSounds = [[NSMutableDictionary alloc] init];
+		playSounds.removeAllObjects()
 		
 		//[self resetPlaySounds];
 	}
@@ -71,30 +72,30 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 			self, name: UIDeviceProximityStateDidChangeNotification, object: nil)
 	}
 	
-	/*- (void)proximitySensorStateDidChange:(NSNotification *)notification
-	{
-	int on_off = [UIDevice currentDevice].proximityState;
-	
-	switch (on_off) {
-	// off
-	case 0:
-	// Wave Off
-	[self stopRecord];
-	
-	[self playRecord];
-	
-	break;
-	
-	// on
-	case 1:
-	// Wave On
-	[self recordFile];
-	
-	break;
+	func proximitySensorStateDidChange(notification: NSNotification) {
+
+		var on_off: Bool = UIDevice.currentDevice().proximityState;
+		
+		switch (on_off) {
+			// off
+		case false:
+			// Wave Off
+			stopRecord()
+			
+			playRecord()
+			
+			break
+			
+			// on
+		case true:
+			// Wave On
+			recordFile()
+			
+			break
+		}
 	}
-	}
 	
-	- (void)resetPlaySounds
+	/*- (void)resetPlaySounds
 	{
 	NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
 	
