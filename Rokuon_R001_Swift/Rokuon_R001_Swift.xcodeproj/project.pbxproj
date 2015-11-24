@@ -55,6 +55,7 @@
 		98656F601BFF8475002D4EB7 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
 		98656F611BFF8475002D4EB7 /* Rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rec.png; sourceTree = "<group>"; };
 		98656F671BFF8B75002D4EB7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		98656F691C012E74002D4EB7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +115,7 @@
 				98656F391BFF7E22002D4EB7 /* LaunchScreen.storyboard */,
 				98656F3C1BFF7E23002D4EB7 /* Info.plist */,
 				98656F5E1BFF8475002D4EB7 /* Images */,
+				98656F691C012E74002D4EB7 /* MyPlayground.playground */,
 			);
 			path = Rokuon_R001_Swift;
 			sourceTree = "<group>";

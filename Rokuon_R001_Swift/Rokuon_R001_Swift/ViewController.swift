@@ -49,7 +49,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		//playSounds = [[NSMutableDictionary alloc] init];
 		playSounds.removeAllObjects()
 		
-		//[self resetPlaySounds];
+		resetPlaySounds()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -74,58 +74,87 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	
 	func proximitySensorStateDidChange(notification: NSNotification) {
 
-		var on_off: Bool = UIDevice.currentDevice().proximityState;
+		let on_off: Bool = UIDevice.currentDevice().proximityState;
 		
 		switch (on_off) {
 			// off
 		case false:
 			// Wave Off
-			stopRecord()
+			//[self stopRecord];
+			//stopRecord()
 			
-			playRecord()
+			//[self resetPlaySounds];
+			resetPlaySounds()
+			
+			//[tableView reloadData];
+			tableView.reloadData()
+			
+			//[self playRecord];
+			//playRecord()
 			
 			break
 			
 			// on
 		case true:
 			// Wave On
-			recordFile()
+			//[self recordFile];
+			//recordFile()
 			
 			break
 		}
 	}
 	
-	/*- (void)resetPlaySounds
-	{
-	NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-	
-	NSDateFormatter *df = [[NSDateFormatter alloc] init];
-	[df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]]; // Localeの指定
-	
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-	NSError *error;
-	NSArray *list = [fileManager contentsOfDirectoryAtPath:dir
-	error:&error];
-	
+	func resetPlaySounds() {
+
+		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+		var dir = NSHomeDirectory().stringByAppendingString("/Documents")
+
+		//NSDateFormatter *df = [[NSDateFormatter alloc] init];
+		//var df: NSDateFormatter = NSDateFormatter()
+		//[df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]]; // Localeの指定
+		let df = NSDateFormatter()
+		df.locale = NSLocale(localeIdentifier: "ja_JP")
+
+		//NSFileManager *fileManager = [NSFileManager defaultManager];
+		let fileManager = NSFileManager.defaultManager()
+		
+		//NSError *error;
+		//NSArray *list = [fileManager contentsOfDirectoryAtPath:dir error:&error];
+		let list = try? fileManager.contentsOfDirectoryAtPath(dir)
+		if list != nil {
+
+			//for (NSString *path in list) {
+			for var path in list! {
+				//url = [NSURL fileURLWithPath:path];
+				let url: NSURL = NSURL.fileURLWithPath(path)
+
+				//NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:@"url", url, nil];
+				let data: Dictionary<NSURL, String> = [url: "url"]
+				
+				//[playSounds setObject:data forKey:path];
+				playSounds.setObject(data, forKey: path)
+			}
+
+			/*playTitles = [playSounds.allKeys sortedArrayUsingComparator:^(id obj1, id obj2) {
+			return [obj2 compare:obj1];
+			}];*/
+			playTitles = playSounds.allKeys.sort(isOrderBefore: obj1: id, obj2: id) {
+				return obj2
+		}
+		
+		
+		
+		
+		df.dateFormat = "yyyy/MM/dd HH:mm:ss"
+		print("Result:\(outputFormat.stringFromDate(date))")
+		
+		
 	// ファイルやディレクトリの一覧を表示する
-	for (NSString *path in list) {
-	url = [NSURL fileURLWithPath:path];
 	
-	NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-	@"url", url,
-	nil];
 	
-	[playSounds setObject:data
-	forKey:path];
 	}
 	
-	playTitles = [playSounds.allKeys sortedArrayUsingComparator:^(id obj1, id obj2) {
-	return [obj2 compare:obj1];
-	}];
-	}
-	
-	- (NSURL*)getURL
+	/*- (NSURL*)getURL
 	{
 	// File Path
 	NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
