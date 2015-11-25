@@ -17,10 +17,10 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	
 	var url:		NSURL?
 	
-	var playSounds = NSMutableDictionary()
+	var playSounds : [String : AnyObject] = Dictionary()
 	//var foundationDictionary = NSMutableDictionary(dictionary: dictionary)
 	
-	var playTitles = NSMutableArray()
+	var playTitles : [String] = Array() //NSMutableArray()
 
 	@IBOutlet weak var label_SoundTitle_Front:	UILabel!
 	@IBOutlet weak var label_SoundTitle_Back:	UILabel!
@@ -47,7 +47,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		tableView.delegate = self;
 		
 		//playSounds = [[NSMutableDictionary alloc] init];
-		playSounds.removeAllObjects()
+		playSounds.removeAll()
+		playTitles.removeAll()
 		
 		resetPlaySounds()
 	}
@@ -107,7 +108,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	func resetPlaySounds() {
 
 		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-		var dir = NSHomeDirectory().stringByAppendingString("/Documents")
+		let dir = NSHomeDirectory().stringByAppendingString("/Documents")
 
 		//NSDateFormatter *df = [[NSDateFormatter alloc] init];
 		//var df: NSDateFormatter = NSDateFormatter()
@@ -120,63 +121,98 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		
 		//NSError *error;
 		//NSArray *list = [fileManager contentsOfDirectoryAtPath:dir error:&error];
-		let list = try? fileManager.contentsOfDirectoryAtPath(dir)
-		if list != nil {
+		if let list = try? fileManager.contentsOfDirectoryAtPath(dir) {
 
-			//for (NSString *path in list) {
-			for var path in list! {
+			// ファイルやディレクトリの一覧を表示する
+			//for (NSString *name in list) {
+			for name in list {
+				//NSString *path = [NSString stringWithFormat:@"%@/%@", dir, name];
+				let path = String().stringByAppendingFormat("%@/%@", dir, name)
+
 				//url = [NSURL fileURLWithPath:path];
-				let url: NSURL = NSURL.fileURLWithPath(path)
+				let url = NSURL.fileURLWithPath(path)
 
-				//NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:@"url", url, nil];
-				let data: Dictionary<NSURL, String> = [url: "url"]
+				//NSDictionary *attribute = [fileManager attributesOfItemAtPath:path error:nil];
+				if let attr = try? fileManager.attributesOfItemAtPath(path) {
 				
-				//[playSounds setObject:data forKey:path];
-				playSounds.setObject(data, forKey: path)
+					//NSDate *creationDate = [attribute objectForKey:NSFileCreationDate];
+					let cre_date = attr[NSFileCreationDate]
+				
+					//NSDate *modificationDate = [attribute objectForKey:NSFileModificationDate];
+					let mod_date = attr[NSFileModificationDate]
+					
+					//NSNumber *fileSize = [attribute objectForKey:NSFileSize];
+					let filesize = attr[NSFileSize]
+				
+					//NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+					let data: [String : AnyObject] = [
+						"name"		: name		,
+						"url"		: url		,
+						"cre date"	: cre_date!	,
+						"mod date"	: mod_date!	,
+						"size"		: filesize!	]
+				
+					//[playSounds setObject:data forKey:path];
+					playSounds[path] = data
+				}
 			}
 
 			/*playTitles = [playSounds.allKeys sortedArrayUsingComparator:^(id obj1, id obj2) {
 			return [obj2 compare:obj1];
 			}];*/
-			playTitles = playSounds.allKeys.sort(isOrderBefore: obj1: id, obj2: id) {
-				return obj2
+			/*playTitles = playSounds.allKeys.sort(isOrderBefore: obj1: id, obj2: id) {
+				return obj2*/
 		}
 		
+		playTitles.forEach({ (String) -> () in
+			playSounds.keys
+		})
+		
+		playTitles.sortInPlace()
+		
+		NSLog("\(playTitles)")
 		
 		
 		
-		df.dateFormat = "yyyy/MM/dd HH:mm:ss"
-		print("Result:\(outputFormat.stringFromDate(date))")
+		//df.dateFormat = "yyyy/MM/dd HH:mm:ss"
+		//print("Result:\(outputFormat.stringFromDate(date))")
 		
 		
 	// ファイルやディレクトリの一覧を表示する
 	
-	
 	}
 	
-	/*- (NSURL*)getURL
-	{
-	// File Path
-	NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-	
-	NSDateFormatter *df = [[NSDateFormatter alloc] init];
-	[df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]]; // Localeの指定
-	[df setDateFormat:@"yyyyMMdd_HHmmss_"];
-	
-	// 日付(NSDate) => 文字列(NSString)に変換
-	NSDate *now = [NSDate date];
-	int intMillSec = (int) floor(([now timeIntervalSince1970] - floor([now timeIntervalSince1970]))*1000);
-	
-	// 日付(NSDate) => 文字列(NSString)に変換
-	NSString* strNow = [NSString stringWithFormat: @"%@%03d", [df stringFromDate: now], intMillSec];
-	
-	NSString *filePath = [dir stringByAppendingFormat: @"/%@.caf", strNow];
-	url = [NSURL fileURLWithPath: filePath];
-	
-	return url;
+	//- (NSURL*)getURL {
+	func getURL() -> (NSURL) {
+		
+		// File Path
+		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+		let dir = NSHomeDirectory().stringByAppendingString("/Documents")
+		
+		//NSDateFormatter *df = [[NSDateFormatter alloc] init];
+		let df = NSDateFormatter()
+		df.locale = NSLocale(localeIdentifier: "ja_JP")
+		
+		// 日付(NSDate) => 文字列(NSString)に変換
+		//NSDate *now = [NSDate date];
+		let now: NSDate = NSDate()
+		//int intMillSec = (int) floor(([now timeIntervalSince1970] - floor([now timeIntervalSince1970]))*1000);
+		let intMillSec: Int = floor((now.timeIntervalSince1970 - floor(now.timeIntervalSince1970)) * 1000) as Int
+
+		// 日付(NSDate) => 文字列(NSString)に変換
+		//NSString* strNow = [NSString stringWithFormat: @"%@%03d", [df stringFromDate: now], intMillSec];
+		let strNow:String = String(format: "%@%03d", df.stringFromDate(now), intMillSec)
+		
+		//NSString *filePath = [dir stringByAppendingFormat: @"/%@.caf", strNow];
+		let filepath: String = dir.stringByAppendingFormat("/%@.caf", strNow)
+
+		//url = [NSURL fileURLWithPath: filePath];
+		url = NSURL.fileURLWithPath(filepath)
+		
+		return url
 	}
 	
-	- (NSMutableDictionary *)setAudioRecorder
+	/*- (NSMutableDictionary *)setAudioRecorder
 	{
 	NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
 	[settings setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
@@ -325,4 +361,3 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	}*/
 
 }
-
