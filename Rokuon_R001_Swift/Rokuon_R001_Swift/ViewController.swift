@@ -182,8 +182,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	
 	}
 	
-	//- (NSURL*)getURL {
-	func getURL() -> (NSURL) {
+	func getURL() -> (NSURL?) {
 		
 		// File Path
 		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
@@ -197,7 +196,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		//NSDate *now = [NSDate date];
 		let now: NSDate = NSDate()
 		//int intMillSec = (int) floor(([now timeIntervalSince1970] - floor([now timeIntervalSince1970]))*1000);
-		let intMillSec: Int = floor((now.timeIntervalSince1970 - floor(now.timeIntervalSince1970)) * 1000) as Int
+		let intMillSec: Int = Int(  floor(   (now.timeIntervalSince1970 - floor(now.timeIntervalSince1970)) * 1000   )  )
 
 		// 日付(NSDate) => 文字列(NSString)に変換
 		//NSString* strNow = [NSString stringWithFormat: @"%@%03d", [df stringFromDate: now], intMillSec];
