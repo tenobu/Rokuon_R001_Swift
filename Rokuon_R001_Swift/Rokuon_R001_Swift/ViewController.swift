@@ -22,6 +22,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	
 	var playTitles : [String] = Array() //NSMutableArray()
 
+	/*let setAudioRecorder : [String : AnyObject?] = [
+		AVFormatIDKey				: NSNumber(kAudioFormatLinearPCM)	,
+		AVSampleRateKey				: NSNumber(44100.0)					,
+		AVNumberOfChannelsKey		: NSNumber(2)						,
+		AVLinearPCMBitDepthKey		: NSNumber(16)						,
+		AVLinearPCMIsBigEndianKey	: NSNumber(false)					,
+		AVLinearPCMIsFloatKey		: NSNumber(false)
+	]*/
+
 	@IBOutlet weak var label_SoundTitle_Front:	UILabel!
 	@IBOutlet weak var label_SoundTitle_Back:	UILabel!
 	
@@ -210,24 +219,43 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		
 		return url
 	}
-	
+
 	/*- (NSMutableDictionary *)setAudioRecorder
-	{
-	NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
-	[settings setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
-	[settings setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
-	[settings setValue:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
-	[settings setValue:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
-	[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
-	[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
-	
-	return settings;
+		//NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
+		//[settings setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
+		//[settings setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+		//[settings setValue:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
+		//[settings setValue:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+		//[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
+		//[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
+	}*/
+	func setAudioRecorder() -> Dictionary <String, NSNumber> {
+		
+		var setting1 = Dictionary <String, NSNumber> ()
+		
+		setting1[AVFormatIDKey]				= NSNumber(unsignedInt: kAudioFormatLinearPCM)
+		setting1[AVSampleRateKey]			= NSNumber(double: 44100.0)
+		setting1[AVNumberOfChannelsKey]		= NSNumber(int: 2)
+		setting1[AVLinearPCMBitDepthKey]	= NSNumber(int: 16)
+		setting1[AVLinearPCMIsBigEndianKey]	= NSNumber(bool: false)
+		setting1[AVLinearPCMIsFloatKey]		= NSNumber(bool: false)
+
+		/*var setting2 = Dictionary <String, NSNumber> ()[
+
+			AVFormatIDKey				: NSNumber(unsignedInt:kAudioFormatLinearPCM)	,
+			AVSampleRateKey				: NSNumber(double:44100.0)						,
+			AVNumberOfChannelsKey		: NSNumber(int:2)								,
+			AVLinearPCMBitDepthKey		: NSNumber(int:16)								,
+			AVLinearPCMIsBigEndianKey	: NSNumber(bool: false)							,
+			AVLinearPCMIsFloatKey		: NSNumber(bool: false)								]*/
+		
+		return setting1
 	}
 	
 	//
 	// recordFile
 	//
-	- (void)recordFile
+	/*- (void)recordFile
 	{
 	NSLog(@"Record");
 	
