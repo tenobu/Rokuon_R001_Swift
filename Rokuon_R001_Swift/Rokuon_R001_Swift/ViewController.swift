@@ -323,25 +323,37 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 
 		NSLog("Play")
 	
-	NSError *error = nil;
-	
-	if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
-	{
-	player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-	
-	if ( error != nil )
-	{
-	NSLog(@"Error %@", [error localizedDescription]);
-	}
-	[player prepareToPlay];
-	[player play];
-	}
+		//NSError *error = nil;
+
+		do {
+			
+			let fileManager = NSFileManager.defaultManager()
+			
+			let path: String? = url?.path
+			
+			//if ( [[NSFileManager defaultManager] fileExistsAtPath:[url path]] )
+			if fileManager.fileExistsAtPath(path!) {
+
+				//player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+				try player = AVAudioPlayer.init(contentsOfURL: url!)
+				
+				//[player prepareToPlay];
+				player?.prepareToPlay()
+
+				//[player play];
+				player?.play()
+			}
+
+		} catch {
+			print(error)
+		}
+
 	}
 	
 	//
 	//
 	//
-	- (void)toCommand:(NSString *)command
+	/*- (void)toCommand:(NSString *)command
 	{
 	if ([command isEqualToString:@"toPlay"]) {
 	
@@ -359,7 +371,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	{
 	switch (title) {
 	case
-	<#statements#>
+
 	break;
 	
 	default:
