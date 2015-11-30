@@ -405,12 +405,14 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		}*/
 	}
 	
-	- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-	{
-	return 1;
+	//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+	func numberOfRowsInSection(section: Int) -> Int {
+
+		return 1;
+	
 	}
 	
-	- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+	/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 	{
 	return playSounds.count;
 	}
