@@ -395,16 +395,14 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	//
 	//
 	//
-	- (void)drawTitle:(NSString *)title
-	{
-	switch (title) {
-	case
+	//- (void)drawTitle:(NSString *)title
+	func drawTitle(title: String) {
 
-	break;
-	
-	default:
-	break;
-	}
+		/*switch (title) {
+
+			case
+
+		}*/
 	}
 	
 	- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
