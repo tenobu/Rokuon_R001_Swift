@@ -301,24 +301,27 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	//
 	// stopRecord
 	//
-	/*- (void)stopRecord
-	{
-	NSLog(@"Stop");
+	//- (void)stopRecord
+	func stopRecord() {
+
+		NSLog("Stop")
 	
-	if ( recorder != nil && recorder.isRecording )
-	{
-	[recorder stop];
+		//if ( recorder != nil && recorder.isRecording )
+		if recorder != nil && recorder!.recording {
+			//[recorder stop];
+			recorder!.stop()
 	
-	recorder = nil;
-	}
+			recorder = nil;
+		}
 	}
 	
 	//
 	// playRecord
 	//
-	- (void)playRecord
-	{
-	NSLog(@"Play");
+	//- (void)playRecord
+	func playRecord() {
+
+		NSLog("Play")
 	
 	NSError *error = nil;
 	
