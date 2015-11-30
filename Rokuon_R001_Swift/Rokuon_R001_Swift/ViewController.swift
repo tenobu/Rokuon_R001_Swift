@@ -255,53 +255,53 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	//
 	// recordFile
 	//
-	/*- (void)recordFile
-	{
-	NSLog(@"Record");
+	//- (void)recordFile
+	func recordFile() {
+
+		//NSLog(@"Record");
+		NSLog("Record")
+
+		do {
+			// Prepare recording(Audio session)
+			//NSError *error = nil;
 	
-	// Prepare recording(Audio session)
-	NSError *error = nil;
+			//session = [AVAudioSession sharedInstance];
+			session = AVAudioSession.sharedInstance()
 	
-	session = [AVAudioSession sharedInstance];
-	
-	if ( session.inputAvailable )   // for iOS6 [session inputIsAvailable]  iOS5
-	{
-	[session setCategory:AVAudioSessionCategoryPlayAndRecord
-	error:&error];
-	}
-	
-	if ( error != nil )
-	{
-	NSLog(@"Error when preparing audio session :%@", [error localizedDescription]);
-	return;
-	}
-	
-	[session setActive:YES
-	error:&error];
-	if ( error != nil )
-	{
-	NSLog(@"Error when enabling audio session :%@", [error localizedDescription]);
-	return;
-	}
-	
-	recorder = [[AVAudioRecorder alloc] initWithURL:[self getURL]
-	settings:[self setAudioRecorder]
-	error:&error];
-	
-	//recorder.meteringEnabled = YES;
-	if ( error != nil )
-	{
-	NSLog(@"Error when preparing audio recorder :%@", [error localizedDescription]);
-	return;
-	}
-	
-	[recorder record];
+			//if ( session.inputAvailable )   // for iOS6 [session inputIsAvailable]  iOS5
+			session!.inputAvailable
+
+			//[session setCategory:AVAudioSessionCategoryPlayAndRecord
+			//	error:&error];
+			try session!.setCategory(AVAudioSessionCategoryPlayAndRecord)
+			
+			//[session setActive:YES error:&error];
+			try session!.setActive(true)
+			
+			//recorder = [[AVAudioRecorder alloc] initWithURL:[self getURL]
+			//	settings:[self setAudioRecorder]
+			//	error:&error];
+			
+			let _url = getURL()
+			try recorder = AVAudioRecorder.init(URL: _url!, settings: setAudioRecorder())
+			
+			//recorder.meteringEnabled = YES;
+			
+			//[recorder record];
+			recorder!.record()
+		} catch {
+			//NSLog(@"Error when preparing audio session :%@", [error localizedDescription]);
+			//NSLog("Error when preparing audio session :%", error)
+			print(error)
+			return
+		}
+		
 	}
 	
 	//
 	// stopRecord
 	//
-	- (void)stopRecord
+	/*- (void)stopRecord
 	{
 	NSLog(@"Stop");
 	
