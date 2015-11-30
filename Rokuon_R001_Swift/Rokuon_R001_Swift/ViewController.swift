@@ -31,6 +31,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		AVLinearPCMIsFloatKey		: NSNumber(false)
 	]*/
 
+	@IBOutlet weak var imageView: UIImageView!
+	
 	@IBOutlet weak var label_SoundTitle_Front:	UILabel!
 	@IBOutlet weak var label_SoundTitle_Back:	UILabel!
 	
@@ -353,15 +355,41 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	//
 	//
 	//
-	/*- (void)toCommand:(NSString *)command
-	{
-	if ([command isEqualToString:@"toPlay"]) {
-	
-	} else if ([command isEqualToString:@"toRec"]) {
-	
-	} else if ([command isEqualToString:@"toPause"]) {
-	
-	}
+	//- (void)toCommand:(NSString *)command
+	func toCommand(command: String) {
+		
+		//if ([command isEqualToString: @"toPlay"]) {
+		switch command {
+			
+			case "toPlay":
+			
+				//imageView.image = [UIImage imageNamed: @"Play.png"];
+				imageView.image = UIImage.init(named: "Play.png")
+				
+				//[self playRecord];
+				playRecord()
+		
+			case "toRec":
+				
+				//imageView.image = [UIImage imageNamed: @"Rec.png"];
+				imageView.image = UIImage.init(named: "Rec.png")
+			
+				//[self recordFile];
+				recordFile()
+
+			case "toPause":
+				
+				//imageView.image = [UIImage imageNamed: @"Pause.png"];
+				imageView.image = UIImage.init(named: "Pause.png")
+			
+				//[self stopRecord];
+				stopRecord()
+			
+		}
+		
+		label_SoundTitle_Front.text	 = title;
+		label_SoundTitle_Back.text	 = title;
+
 	}
 	
 	//
