@@ -60,7 +60,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 		//playSounds = [[NSMutableDictionary alloc] init];
 		playSounds.removeAll()
 		playTitles.removeAll()
-		
+
 		resetPlaySounds()
 	}
 
@@ -384,11 +384,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 			
 				//[self stopRecord];
 				stopRecord()
+		
+			default:
+			
+				break
 			
 		}
 		
-		label_SoundTitle_Front.text	 = title;
-		label_SoundTitle_Back.text	 = title;
+		label_SoundTitle_Front.text	 = title
+		label_SoundTitle_Back.text	 = title
 
 	}
 	
@@ -406,28 +410,31 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	}
 	
 	//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-	func numberOfRowsInSection(section: Int) -> Int {
+	/*func numberOfRowsInSection(section: Int) -> Int {
 
 		return 1;
 	
-	}
-	
-	/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-	{
-	return playSounds.count;
-	}
-	
-	- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-	{
-	UITableViewCell *cell;// = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-	// cellデータが無い場合、UITableViewCellを生成して、"cell"というkeyでキャッシュする
-	if (!cell) {
-	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-	}
-	
-	cell.textLabel.text = [playTitles objectAtIndex:indexPath.row];
-	
-	return cell;
 	}*/
+	
+	//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+	func numberOfRowsInSection(section: Int) -> Int {
+
+		return playSounds.count
+	
+	}
+	
+	//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		
+		// 再利用するCellを取得する.
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+		
+		// Cellに値を設定する.
+		//cell.textLabel!.text = [playTitles objectAtIndex:indexPath.row];
+		cell.textLabel!.text = playTitles[indexPath.row]
+	
+		return cell
+
+	}
 
 }
