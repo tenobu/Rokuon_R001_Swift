@@ -231,7 +231,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		//[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
 		//[settings setValue:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey];
 	}*/
-	func setAudioRecorder() -> Dictionary <String, NSNumber> {
+	/*func setAudioRecorder() -> Dictionary <String, NSNumber> {
 		
 		var setting1 = Dictionary <String, NSNumber> ()
 		
@@ -243,7 +243,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		setting1[AVLinearPCMIsFloatKey]		= NSNumber(bool: false)
 		
 		return setting1
-	}
+	}*/
 	
 	//
 	// recordFile
