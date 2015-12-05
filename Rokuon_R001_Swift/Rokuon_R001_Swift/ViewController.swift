@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITableViewDelegate {//, UITableViewDataSource {
+class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayerDelegate,*/ UITableViewDelegate {//, UITableViewDataSource {
 
-	var session:	AVAudioSession?
+	/*var session:	AVAudioSession?
 	var recorder:	AVAudioRecorder?
 	var player:		AVAudioPlayer?
 	
@@ -20,7 +20,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
 	var playSounds : [String : AnyObject] = Dictionary()
 	//var foundationDictionary = NSMutableDictionary(dictionary: dictionary)
 	
-	var playTitles : [String] = Array() //NSMutableArray()
+	var playTitles : [String] = Array() //NSMutableArray()*/
 
 	/*let setAudioRecorder : [String : AnyObject?] = [
 		AVFormatIDKey				: NSNumber(kAudioFormatLinearPCM)	,
