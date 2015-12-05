@@ -249,7 +249,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	// recordFile
 	//
 	//- (void)recordFile
-	func recordFile() {
+	/*func recordFile() {
 
 		//NSLog(@"Record");
 		NSLog("Record")
@@ -289,13 +289,13 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 			return
 		}
 		
-	}
+	}*/
 	
 	//
 	// stopRecord
 	//
 	//- (void)stopRecord
-	func stopRecord() {
+	/*func stopRecord() {
 
 		NSLog("Stop")
 	
@@ -306,7 +306,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	
 			recorder = nil;
 		}
-	}
+	}*/
 	
 	//
 	// playRecord
