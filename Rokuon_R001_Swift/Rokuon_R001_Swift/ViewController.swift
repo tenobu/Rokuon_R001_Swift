@@ -84,7 +84,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 			self, name: UIDeviceProximityStateDidChangeNotification, object: nil)
 	}
 	
-	func proximitySensorStateDidChange(notification: NSNotification) {
+	/*func proximitySensorStateDidChange(notification: NSNotification) {
 
 		let on_off: Bool = UIDevice.currentDevice().proximityState;
 		
@@ -114,7 +114,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 			
 			break
 		}
-	}
+	}*/
 	
 	/*func resetPlaySounds() {
 
@@ -410,7 +410,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 	func numberOfRowsInSection(section: Int) -> Int {
 
-		return playSounds.count
+		return 1;//playSounds.count
 	
 	}
 	
@@ -422,7 +422,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		
 		// Cellに値を設定する.
 		//cell.textLabel!.text = [playTitles objectAtIndex:indexPath.row];
-		cell.textLabel!.text = playTitles[indexPath.row]
+		cell.textLabel!.text = "aaaaa"//playTitles[indexPath.row]
 	
 		return cell
 
