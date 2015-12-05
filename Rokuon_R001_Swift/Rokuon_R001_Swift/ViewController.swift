@@ -312,7 +312,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	// playRecord
 	//
 	//- (void)playRecord
-	func playRecord() {
+	/*func playRecord() {
 
 		NSLog("Play")
 	
@@ -341,13 +341,13 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 			print(error)
 		}
 
-	}
+	}*/
 	
 	//
 	//
 	//
 	//- (void)toCommand:(NSString *)command
-	func toCommand(command: String) {
+	/*func toCommand(command: String) {
 		
 		//if ([command isEqualToString: @"toPlay"]) {
 		switch command {
@@ -385,7 +385,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		label_SoundTitle_Front.text	 = title
 		label_SoundTitle_Back.text	 = title
 
-	}
+	}*/
 	
 	//
 	//
