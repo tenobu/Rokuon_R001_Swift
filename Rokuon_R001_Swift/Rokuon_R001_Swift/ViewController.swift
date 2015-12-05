@@ -58,8 +58,8 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		tableView.delegate = self;
 		
 		//playSounds = [[NSMutableDictionary alloc] init];
-		playSounds.removeAll()
-		playTitles.removeAll()
+		//playSounds.removeAll()
+		//playTitles.removeAll()
 
 		resetPlaySounds()
 	}
@@ -116,7 +116,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		}
 	}
 	
-	func resetPlaySounds() {
+	/*func resetPlaySounds() {
 
 		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
 		let dir = NSHomeDirectory().stringByAppendingString("/Documents")
@@ -191,7 +191,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		
 	// ファイルやディレクトリの一覧を表示する
 	
-	}
+	}*/
 	
 	func getURL() -> (NSURL?) {
 		
