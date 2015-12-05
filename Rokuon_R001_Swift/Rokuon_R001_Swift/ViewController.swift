@@ -193,7 +193,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	
 	}*/
 	
-	func getURL() -> (NSURL?) {
+	/*func getURL() -> (NSURL?) {
 		
 		// File Path
 		//NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
@@ -220,7 +220,7 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		url = NSURL.fileURLWithPath(filepath)
 		
 		return url
-	}
+	}*/
 
 	/*- (NSMutableDictionary *)setAudioRecorder
 		//NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
@@ -241,15 +241,6 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		setting1[AVLinearPCMBitDepthKey]	= NSNumber(int: 16)
 		setting1[AVLinearPCMIsBigEndianKey]	= NSNumber(bool: false)
 		setting1[AVLinearPCMIsFloatKey]		= NSNumber(bool: false)
-
-		/*var setting2 = Dictionary <String, NSNumber> ()[
-
-			AVFormatIDKey				: NSNumber(unsignedInt:kAudioFormatLinearPCM)	,
-			AVSampleRateKey				: NSNumber(double:44100.0)						,
-			AVNumberOfChannelsKey		: NSNumber(int:2)								,
-			AVLinearPCMBitDepthKey		: NSNumber(int:16)								,
-			AVLinearPCMIsBigEndianKey	: NSNumber(bool: false)							,
-			AVLinearPCMIsFloatKey		: NSNumber(bool: false)								]*/
 		
 		return setting1
 	}
