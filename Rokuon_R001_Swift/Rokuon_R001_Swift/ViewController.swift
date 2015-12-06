@@ -9,7 +9,7 @@
 import UIKit
 //import AVFoundation
 
-class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayerDelegate,*/ UITableViewDelegate {//, UITableViewDataSource {
+class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayerDelegate,*/ UITableViewDelegate, UITableViewDataSource {
 
 	/*var session:	AVAudioSession?
 	var recorder:	AVAudioRecorder?
@@ -54,14 +54,14 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 		NSNotificationCenter.defaultCenter().addObserver(
 			self, selector: "proximitySensorStateDidChange:", name: UIDeviceProximityStateDidChangeNotification, object: nil)
 
-		//tableView.dataSource = self;
+		tableView.dataSource = self;
 		tableView.delegate = self;
 		
 		//playSounds = [[NSMutableDictionary alloc] init];
 		//playSounds.removeAll()
 		//playTitles.removeAll()
 
-		resetPlaySounds()
+		//resetPlaySounds()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -408,11 +408,16 @@ class ViewController: UIViewController, /*AVAudioRecorderDelegate, AVAudioPlayer
 	}*/
 	
 	//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-	func numberOfRowsInSection(section: Int) -> Int {
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+		return 1;//playSounds.count
+
+	}	
+	/*func numberOfRowsInSection(section: Int) -> Int {
 
 		return 1;//playSounds.count
 	
-	}
+	}*/
 	
 	//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
